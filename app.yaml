@@ -1,0 +1,33 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+env_variables:
+  NODE_ENV: test
+
+handlers:
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
+
+  - url: '/(.*)'
+    static_files: build/\1
+    upload: build/.*
+
+  - url: /static
+    static_dir: build/static/
+
+skip_files:
+  - node_modules/
+  - config/
+  - src/
+  - public/
+  - scripts/
+  - .DS_Store
+  - .env
+  - .eslintrc.js
+  - .git
+  - .gitignore
+  - .prettierrc
+  - package.json
+  - package-lock.json
+  - README.md
